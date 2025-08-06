@@ -1,5 +1,6 @@
 {
-  "name": "nextapp",
+  "name": "nextLearn",
+   "homepage": "https://kumarprincepk.github.io/nextLearn/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
