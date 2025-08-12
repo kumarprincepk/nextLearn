@@ -10,10 +10,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "baguettebox.js": "^1.12.0",
+    "glightbox": "^3.3.1",
+    "lg-fullscreen": "^1.2.1",
+    "lg-thumbnail": "^1.2.1",
+    "lg-zoom": "^1.3.0",
     "lightbox.js": "^1.0.2",
+    "lightgallery": "^2.9.0-beta.1",
     "next": "15.4.5",
+    "photoswipe": "^5.4.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-image-gallery": "^1.4.0",
+    "simplelightbox": "^2.14.3",
     "swiper": "^11.2.10"
   },
   "devDependencies": {
