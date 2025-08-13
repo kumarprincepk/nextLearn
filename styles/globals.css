@@ -195,3 +195,104 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Add to globals.css or equivalent --- */
+
+/* Root wrapper to position controls overlay */
+.gig-root { position: relative; }
+
+/* Ensure inner overflow is hidden so zoom doesn’t create scrollbars */
+.gig-gallery .image-gallery-content { overflow: hidden; }
+
+/* Center image even when scaled */
+.gig-zoom-wrap {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Image styling for zooming */
+.gig-zoom-img {
+  max-width: 100%;
+  max-height: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
+}
+
+/* Top-right floating control cluster */
+.gig-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.72);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  backdrop-filter: saturate(120%) blur(8px);
+  z-index: 1001; /* above gallery */
+  align-items: center;
+}
+
+/* Buttons */
+.gig-btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 10px;
+  line-height: 1;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+}
+.gig-btn:hover { background: rgba(255,255,255,0.2); }
+.gig-btn:active { background: rgba(255,255,255,0.28); }
+.gig-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Mobile/touch adjustments */
+@media (max-width: 768px) {
+  .gig-controls {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 10px;
+  }
+  .gig-btn {
+    padding: 10px 12px;
+    font-size: 16px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+.image-gallery-thumbnails-wrapper{
+    position: fixed !important;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}

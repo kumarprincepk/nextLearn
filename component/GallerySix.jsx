@@ -267,11 +267,10 @@ export default function GalleryReactImage() {
           src={item.original}
           alt={item.originalAlt || item.alt || ""}
           className="max-w-[90vw] max-h-[80vh] object-contain"
-          style={{
-            width: 'auto',
+         style={{
+            width: '100%',
             height: 'auto',
-            maxWidth: '100%',
-            maxHeight: '100%',
+            objectFit: 'contain'
           }}
         />
       </div>
