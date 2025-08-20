@@ -158,7 +158,6 @@ export default function ResponsiveImageGallery() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const galleryRef = useRef(null);
   const intervalRef = useRef(null);
 
   const images = [
@@ -267,14 +266,14 @@ export default function ResponsiveImageGallery() {
         {visibleThumbnails.map((img, index) => (
           <div 
             key={index} 
-            className="relative aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer transition-transform duration-300 hover:scale-105"
+            className="relative aspect-square overflow-hidden rounded-lg shadow-md cursor-pointer group"
             onClick={() => openGalleryAt(index)}
           >
             <Image
               src={img.thumbnail}
               alt={`Thumbnail ${index + 1}`}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
         ))}
@@ -282,11 +281,11 @@ export default function ResponsiveImageGallery() {
         {/* View More Button */}
         {/* {hiddenImagesCount > 0 && (
           <div 
-            className="relative aspect-square bg-gray-200 rounded-lg shadow-md flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105"
+            className="relative aspect-square bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg shadow-md flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 group"
             onClick={() => openGalleryAt(4)}
           >
-            <div className="text-4xl font-bold text-gray-700">+{hiddenImagesCount}</div>
-            <div className="text-gray-600 mt-2">View More</div>
+            <div className="text-4xl font-bold text-white transition-transform duration-300 group-hover:scale-110">+{hiddenImagesCount}</div>
+            <div className="text-white mt-2 transition-transform duration-300 group-hover:scale-105">View More</div>
           </div>
         )} */}
       </div>
@@ -302,7 +301,7 @@ export default function ResponsiveImageGallery() {
             <div className="flex gap-2">
               <button
                 onClick={togglePlayPause}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
                 aria-label={isPlaying ? "Pause slideshow" : "Play slideshow"}
               >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
@@ -310,7 +309,7 @@ export default function ResponsiveImageGallery() {
               
               <button
                 onClick={toggleFullscreen}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
                 aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
                 {isFullscreen ? <ExitFullscreenIcon /> : <FullscreenIcon />}
@@ -318,7 +317,7 @@ export default function ResponsiveImageGallery() {
               
               <button
                 onClick={handleClose}
-                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none"
+                className="w-10 h-10 flex items-center justify-center text-white hover:bg-white hover:bg-opacity-20 rounded focus:outline-none transition-all duration-200 hover:scale-110"
                 aria-label="Close gallery"
               >
                 <CloseIcon />
@@ -330,7 +329,7 @@ export default function ResponsiveImageGallery() {
           <div className="flex-grow flex items-center justify-center relative">
             <button
               onClick={goToPrev}
-              className="absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none"
+              className="absolute left-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none transition-all duration-200 hover:scale-110"
               aria-label="Previous image"
             >
               <PrevIcon />
@@ -341,14 +340,14 @@ export default function ResponsiveImageGallery() {
                 src={images[currentIndex].original}
                 alt={`Image ${currentIndex + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain transition-transform duration-300"
                 priority
               />
             </div>
             
             <button
               onClick={goToNext}
-              className="absolute right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none"
+              className="absolute right-4 z-10 w-10 h-10 flex items-center justify-center text-white bg-black bg-opacity-50 rounded-full hover:bg-opacity-70 focus:outline-none transition-all duration-200 hover:scale-110"
               aria-label="Next image"
             >
               <NextIcon />
@@ -361,7 +360,7 @@ export default function ResponsiveImageGallery() {
               {images.map((img, index) => (
                 <div
                   key={index}
-                  className={`relative w-16 h-16 flex-shrink-0 cursor-pointer border-2 ${index === currentIndex ? 'border-white' : 'border-transparent'}`}
+                  className={`relative w-16 h-16 flex-shrink-0 cursor-pointer border-2 transition-all duration-200 ${index === currentIndex ? 'border-white scale-110' : 'border-transparent hover:scale-105'}`}
                   onClick={() => setCurrentIndex(index)}
                 >
                   <Image
