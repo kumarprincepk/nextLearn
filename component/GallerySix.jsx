@@ -220,7 +220,6 @@ export default function ResponsiveImageGallery() {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isOpen) return;
@@ -242,7 +241,6 @@ export default function ResponsiveImageGallery() {
     };
   }, [isOpen, isPlaying]);
 
-  // Handle fullscreen change events
   useEffect(() => {
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -254,7 +252,6 @@ export default function ResponsiveImageGallery() {
     };
   }, []);
 
-  // Clean up interval on unmount
   useEffect(() => {
     return () => {
       clearInterval(intervalRef.current);
@@ -283,7 +280,7 @@ export default function ResponsiveImageGallery() {
         ))}
         
         {/* View More Button */}
-        {hiddenImagesCount > 0 && (
+        {/* {hiddenImagesCount > 0 && (
           <div 
             className="relative aspect-square bg-gray-200 rounded-lg shadow-md flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105"
             onClick={() => openGalleryAt(4)}
@@ -291,7 +288,7 @@ export default function ResponsiveImageGallery() {
             <div className="text-4xl font-bold text-gray-700">+{hiddenImagesCount}</div>
             <div className="text-gray-600 mt-2">View More</div>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Fullscreen Gallery Modal */}
