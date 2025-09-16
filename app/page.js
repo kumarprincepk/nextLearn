@@ -6,6 +6,7 @@ import GalleryThree from "@/component/GalleryThree";
 import GalleryTwo from "@/component/GalleryTwo";  // free
 import ImageSlider from "@/component/ImageSlider";
 import Image from "next/image";
+import ServicesPage from "./services/page";
 // import dynamic from "next/dynamic"; // ✅ Import dynamic here
 
 // const GalleryFour = dynamic(() => import("./component/GalleryFour"), { ssr: false });
@@ -20,7 +21,8 @@ export default function Home() {
       {/*3. <GalleryThree/> */}
       {/*4. <GalleryFour/> */}
       {/* 5. <GalleryFive/> */}
-      <GalleryReactImage/>
+      {/* <GalleryReactImage/> */}
+      <ServicesPage/>
     </div>
   );
 }
